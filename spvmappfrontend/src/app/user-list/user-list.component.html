@@ -1,0 +1,29 @@
+<h2>User List</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Serial Number</th>
+            <th>Current Count</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let user of users| paginate: {itemsPerPage:5,currentPage:p};">
+            <td>{{ user.name }}</td>
+            <td>{{user.serial_num }}</td>
+            <td>{{ user.curr_count }}</td>
+            <td>
+              <button  (click)="updateUser(user.id)" class="btn btn-info">Update</button>
+              <button  (click)="deleteUser(user.id)" class="btn btn-danger" style="margin-left:10px;">Delete</button>
+              <button  (click)="userDetails(user.id)" class="btn btn-success" style="margin-left:10px;">View</button>
+            </td>
+            
+        </tr>
+    </tbody>
+    <div class="pagination">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</table>
+

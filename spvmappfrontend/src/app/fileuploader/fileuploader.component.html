@@ -1,0 +1,20 @@
+<div class="col-md-6 offset-md-3">
+    <h3>Upload Excel File</h3>
+    <input type="file" accept=".xlsx" (change)="onFileChange($event)"  [multiple]="false"  >
+    
+    <button type="button" name="upload" id="upload" class="btn btn-info" (click)="Upload()" [disabled]="!enableUpload">Upload</button>
+    
+        <!--<button type="button" name="cancel" id="cancel" class="btn btn-danger" (click)="Cancel()">Cancel</button> -->
+</div>
+
+<table class="table table-striped">
+    <tbody>
+        <tr *ngFor="let row of data">
+                <td *ngFor="let cell of row">
+                        {{cell}}
+                </td>
+                
+        </tr>
+    </tbody>
+</table>
+
